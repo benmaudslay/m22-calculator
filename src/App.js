@@ -1,25 +1,88 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { evaluate } from "mathjs";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    screen: ["0"],
+    keys: [
+      { value: "AC", styling: "clear wide" },
+      { value: "/", styling: "operator" },
+      { value: "7", styling: "num" },
+      { value: "8", styling: "num" },
+      { value: "9", styling: "num" },
+      { value: "*", styling: "operator" },
+      { value: "4", styling: "num" },
+      { value: "5", styling: "num" },
+      { value: "6", styling: "num" },
+      { value: "+", styling: "operator" },
+      { value: "1", styling: "num" },
+      { value: "2", styling: "num" },
+      { value: "3", styling: "num" },
+      { value: "-", styling: "operator" },
+      { value: "0", styling: "zero wide" },
+      { value: ".", styling: "num" },
+      { value: "=", styling: "operator" },
+    ],
+  };
+
+  handleInput = (val) => {
+    if (val === "AC") {
+      this.setState({ screen: ["0"] });
+    } else if (val === "=") {
+      let evalStr = this.state.screen.join("");
+      let output = evaluate(evalStr);
+      this.setState({ screen: [output] });
+    } else {
+      // let newArray = this.state.screen;
+      // newArray.push(val);
+      let newArray = [...this.state.screen, val];
+      if (newArray[0] === "0") {
+        newArray.shift();
+      }
+      this.setState({ screen: newArray });
+    }
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <h1>Calculator</h1>
+        <div className="wrapper">
+          <div className="screen">
+            <h2>{this.state.screen}</h2>
+          </div>
+
+          <div className="buttons">
+            {this.state.keys.map((item) => {
+              return (
+                <KeyButton
+                  number={item.value}
+                  styling={item.styling}
+                  clickFunction={this.handleInput}
+                />
+              );
+            })}
+          </div>
+        </div>
+
+        <h4>
+          Made with 🌵 | <a href="https://github.com/benmaudslay">My github</a>
+        </h4>
+      </div>
+    );
+  }
 }
+
+const KeyButton = (props) => {
+  return (
+    <button
+      className={`btn ${props.styling}`}
+      onClick={() => props.clickFunction(props.number)}
+    >
+      {props.number}
+    </button>
+  );
+};
 
 export default App;
