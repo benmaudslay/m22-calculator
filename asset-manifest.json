@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/m22-calculator/static/css/main.e47d3658.chunk.css",
+    "main.js": "/m22-calculator/static/js/main.327c9bb2.chunk.js",
+    "main.js.map": "/m22-calculator/static/js/main.327c9bb2.chunk.js.map",
+    "runtime-main.js": "/m22-calculator/static/js/runtime-main.d2caa762.js",
+    "runtime-main.js.map": "/m22-calculator/static/js/runtime-main.d2caa762.js.map",
+    "static/js/2.60dfabee.chunk.js": "/m22-calculator/static/js/2.60dfabee.chunk.js",
+    "static/js/2.60dfabee.chunk.js.map": "/m22-calculator/static/js/2.60dfabee.chunk.js.map",
+    "static/js/3.95ed82c1.chunk.js": "/m22-calculator/static/js/3.95ed82c1.chunk.js",
+    "static/js/3.95ed82c1.chunk.js.map": "/m22-calculator/static/js/3.95ed82c1.chunk.js.map",
+    "index.html": "/m22-calculator/index.html",
+    "static/css/main.e47d3658.chunk.css.map": "/m22-calculator/static/css/main.e47d3658.chunk.css.map",
+    "static/js/2.60dfabee.chunk.js.LICENSE.txt": "/m22-calculator/static/js/2.60dfabee.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d2caa762.js",
+    "static/js/2.60dfabee.chunk.js",
+    "static/css/main.e47d3658.chunk.css",
+    "static/js/main.327c9bb2.chunk.js"
+  ]
+}
